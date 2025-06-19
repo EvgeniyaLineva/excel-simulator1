@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Excel Симулятор с jExcel</title>
+  <meta charset="UTF-8" />
+  <title>Тест JSpreadsheet</title>
+
+  <!-- jSpreadsheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.11.1/dist/jspreadsheet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.11.1/dist/jspreadsheet.js"></script>
+
+  <!-- jsuites -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+  </style>
 </head>
 <body>
 
-  <h1>Excel Симулятор</h1>
+  <h1>Симулятор Excel</h1>
   <div id="spreadsheet"></div>
 
-  <!-- JS библиотеки -->
-  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.11.1/dist/jspreadsheet.js"></script>
-
   <script>
-    const data = [
-      ['=A2+B2', 'Формула', 'Результат'],
-      [10, 5, ''],
-      [20, 8, ''],
-      [30, 12, '']
-    ];
-
     jspreadsheet(document.getElementById('spreadsheet'), {
-      data: data,
-      columns: [
-        { type: 'numeric', title: 'A', width: 100 },
-        { type: 'numeric', title: 'B', width: 100 },
-        { type: 'text', title: 'C', width: 120 }
+      data: [
+        ['ID', 'Имя', 'Возраст'],
+        [1, 'Иван', 25],
+        [2, 'Мария', 30],
+        [3, 'Петр', 35]
       ],
-      minDimensions: [3, 5],
-      allowInsertColumn: false,
-      allowInsertRow: true,
-      allowDeleteColumn: false,
-      allowDeleteRow: true,
-      parseFormulas: true
+      columns: [
+        { type: 'numeric', title: 'ID', width: 80 },
+        { type: 'text', title: 'Имя', width: 150 },
+        { type: 'numeric', title: 'Возраст', width: 100 }
+      ]
     });
   </script>
+
 </body>
 </html>
 
