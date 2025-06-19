@@ -2,39 +2,25 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Рабочий симулятор Excel</title>
+  <title>Рабочий jSpreadsheet пример</title>
 
-  <!-- Стили jsuites (обязательно подключается раньше jSpreadsheet) -->
+  <!-- 1) jsuites раньше -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
 
-  <!-- Стили jSpreadsheet -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.css" />
+  <!-- 2) jSpreadsheet CE 4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4/dist/jspreadsheet.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4/dist/jspreadsheet.min.js"></script>
 
   <style>
-    body {
-      font-family: sans-serif;
-      padding: 20px;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    #spreadsheet {
-      margin: auto;
-      max-width: 800px;
-    }
+    body { font-family: sans-serif; padding:20px; }
+    #spreadsheet { max-width: 800px; margin: auto; }
   </style>
 </head>
 <body>
-
-  <h1>Симулятор Excel — jSpreadsheet</h1>
+  <h1>jSpreadsheet загружен!</h1>
   <div id="spreadsheet"></div>
 
-  <!-- Скрипты -->
-  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.js"></script>
-
-  <!-- Инициализация -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       jspreadsheet(document.getElementById('spreadsheet'), {
@@ -42,16 +28,14 @@
           ['ID', 'Имя', 'Возраст'],
           [1, 'Иван', 25],
           [2, 'Мария', 30],
-          [3, 'Петр', 35],
-          [4, 'Ольга', 28]
+          [3, 'Петр', 35]
         ],
         columns: [
-          { type: 'numeric', title: 'ID', width: 80 },
-          { type: 'text', title: 'Имя', width: 150 },
-          { type: 'numeric', title: 'Возраст', width: 100 }
+          { type: 'numeric', title:'ID', width:80 },
+          { type: 'text', title:'Имя', width:150 },
+          { type: 'numeric', title:'Возраст', width:100 }
         ],
-        minDimensions: [3, 6],
-        parseFormulas: true
+        minDimensions: [3,6]
       });
     });
   </script>
