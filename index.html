@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Симулятор Excel на LuckySheet</title>
+
+  <!-- LuckySheet стили -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet@latest/dist/css/luckysheet.css">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    #luckysheet {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Контейнер таблицы -->
+  <div id="luckysheet"></div>
+
+  <!-- LuckySheet скрипт -->
+  <script src="https://cdn.jsdelivr.net/npm/luckysheet@latest/dist/luckysheet.umd.js"></script>
+
+  <!-- Инициализация таблицы -->
+  <script>
+    luckysheet.create({
+      container: 'luckysheet',
+      lang: 'ru',
+      showinfobar: false,
+      allowEdit: true,
+      allowUpdate: true,
+      sheetBottomConfig: false,
+      data: [
+        {
+          name: 'Лист1',
+          color: '',
+          status: 1,
+          order: 0,
+          celldata: [],
+          config: {},
+          index: 0
+        }
+      ]
+    });
+  </script>
+
+</body>
+</html>
