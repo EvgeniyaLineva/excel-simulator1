@@ -2,42 +2,27 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Рабочий jSpreadsheet пример</title>
+  <title>Excel-симулятор</title>
 
-  <!-- 1) jsuites раньше -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
+  <!-- Подключаем стили -->
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- 2) jSpreadsheet CE 4 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4/dist/jspreadsheet.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4/dist/jspreadsheet.min.js"></script>
+  <!-- jsuites должен идти ПЕРВЫМ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.min.js"></script>
 
-  <style>
-    body { font-family: sans-serif; padding:20px; }
-    #spreadsheet { max-width: 800px; margin: auto; }
-  </style>
+  <!-- Затем jSpreadsheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.10.1/dist/jspreadsheet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.10.1/dist/jspreadsheet.js"></script>
+
 </head>
 <body>
-  <h1>jSpreadsheet загружен!</h1>
+  <h1>Excel-симулятор</h1>
+
+  <!-- Контейнер для таблицы -->
   <div id="spreadsheet"></div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      jspreadsheet(document.getElementById('spreadsheet'), {
-        data: [
-          ['ID', 'Имя', 'Возраст'],
-          [1, 'Иван', 25],
-          [2, 'Мария', 30],
-          [3, 'Петр', 35]
-        ],
-        columns: [
-          { type: 'numeric', title:'ID', width:80 },
-          { type: 'text', title:'Имя', width:150 },
-          { type: 'numeric', title:'Возраст', width:100 }
-        ],
-        minDimensions: [3,6]
-      });
-    });
-  </script>
+  <!-- Подключаем JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
