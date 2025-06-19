@@ -2,55 +2,42 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Симулятор Excel на LuckySheet</title>
-
-  <!-- LuckySheet стили -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luckysheet@latest/dist/css/luckysheet.css">
-
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-    }
-    #luckysheet {
-      width: 100vw;
-      height: 100vh;
-    }
-  </style>
+  <title>Excel Симулятор с jExcel</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.11.1/dist/jspreadsheet.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.css" />
 </head>
 <body>
 
-  <!-- Контейнер таблицы -->
-  <div id="luckysheet"></div>
+  <h1>Excel Симулятор</h1>
+  <div id="spreadsheet"></div>
 
-  <!-- LuckySheet скрипт -->
-  <script src="https://cdn.jsdelivr.net/npm/luckysheet@latest/dist/luckysheet.umd.js"></script>
+  <!-- JS библиотеки -->
+  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.11.1/dist/jspreadsheet.js"></script>
 
-  <!-- Инициализация таблицы -->
   <script>
-    luckysheet.create({
-      container: 'luckysheet',
-      lang: 'ru',
-      showinfobar: false,
-      allowEdit: true,
-      allowUpdate: true,
-      sheetBottomConfig: false,
-      data: [
-        {
-          name: 'Лист1',
-          color: '',
-          status: 1,
-          order: 0,
-          celldata: [],
-          config: {},
-          index: 0
-        }
-      ]
+    const data = [
+      ['=A2+B2', 'Формула', 'Результат'],
+      [10, 5, ''],
+      [20, 8, ''],
+      [30, 12, '']
+    ];
+
+    jspreadsheet(document.getElementById('spreadsheet'), {
+      data: data,
+      columns: [
+        { type: 'numeric', title: 'A', width: 100 },
+        { type: 'numeric', title: 'B', width: 100 },
+        { type: 'text', title: 'C', width: 120 }
+      ],
+      minDimensions: [3, 5],
+      allowInsertColumn: false,
+      allowInsertRow: true,
+      allowDeleteColumn: false,
+      allowDeleteRow: true,
+      parseFormulas: true
     });
   </script>
-
 </body>
 </html>
+
