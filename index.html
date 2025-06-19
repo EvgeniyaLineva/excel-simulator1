@@ -2,43 +2,41 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Симулятор Excel</title>
+  <title>Рабочий симулятор Excel</title>
 
-  <!-- ✅ Стили JSpreadsheet -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.css" />
-
-  <!-- ✅ Стили jsuites (зависимость JSpreadsheet) -->
+  <!-- Стили jsuites (обязательно подключается раньше jSpreadsheet) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.css" />
+
+  <!-- Стили jSpreadsheet -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.css" />
 
   <style>
     body {
       font-family: sans-serif;
       padding: 20px;
-      background: #f8f8f8;
+      background-color: #f9f9f9;
     }
-
     h1 {
       margin-bottom: 20px;
     }
-
     #spreadsheet {
-      max-width: 800px;
       margin: auto;
+      max-width: 800px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Симулятор Excel</h1>
+  <h1>Симулятор Excel — jSpreadsheet</h1>
   <div id="spreadsheet"></div>
 
-  <!-- ✅ Скрипты JSpreadsheet и зависимости -->
+  <!-- Скрипты -->
   <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.js"></script>
 
-  <!-- ✅ Инициализация таблицы -->
+  <!-- Инициализация -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', () => {
       jspreadsheet(document.getElementById('spreadsheet'), {
         data: [
           ['ID', 'Имя', 'Возраст'],
@@ -52,12 +50,10 @@
           { type: 'text', title: 'Имя', width: 150 },
           { type: 'numeric', title: 'Возраст', width: 100 }
         ],
-        minDimensions: [3, 6], // Минимум 3 столбца и 6 строк
+        minDimensions: [3, 6],
+        parseFormulas: true
       });
     });
   </script>
-
 </body>
 </html>
-
-
