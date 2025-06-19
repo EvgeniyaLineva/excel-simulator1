@@ -2,20 +2,28 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Тест JSpreadsheet</title>
+  <title>Симулятор Excel</title>
 
-  <!-- jSpreadsheet (проверенная версия) -->
+  <!-- ✅ Стили JSpreadsheet -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.js"></script>
 
-  <!-- jsuites -->
+  <!-- ✅ Стили jsuites (зависимость JSpreadsheet) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
 
   <style>
     body {
       font-family: sans-serif;
       padding: 20px;
+      background: #f8f8f8;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    #spreadsheet {
+      max-width: 800px;
+      margin: auto;
     }
   </style>
 </head>
@@ -24,22 +32,29 @@
   <h1>Симулятор Excel</h1>
   <div id="spreadsheet"></div>
 
+  <!-- ✅ Скрипты JSpreadsheet и зависимости -->
+  <script src="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.js"></script>
+
+  <!-- ✅ Инициализация таблицы -->
   <script>
-    window.onload = function () {
+    document.addEventListener('DOMContentLoaded', function () {
       jspreadsheet(document.getElementById('spreadsheet'), {
         data: [
           ['ID', 'Имя', 'Возраст'],
           [1, 'Иван', 25],
           [2, 'Мария', 30],
-          [3, 'Петр', 35]
+          [3, 'Петр', 35],
+          [4, 'Ольга', 28]
         ],
         columns: [
           { type: 'numeric', title: 'ID', width: 80 },
           { type: 'text', title: 'Имя', width: 150 },
           { type: 'numeric', title: 'Возраст', width: 100 }
-        ]
+        ],
+        minDimensions: [3, 6], // Минимум 3 столбца и 6 строк
       });
-    };
+    });
   </script>
 
 </body>
