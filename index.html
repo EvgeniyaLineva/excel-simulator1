@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>Тест JSpreadsheet</title>
 
-  <!-- jSpreadsheet -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.11.1/dist/jspreadsheet.css" />
-  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.11.1/dist/jspreadsheet.js"></script>
+  <!-- jSpreadsheet (проверенная версия) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jspreadsheet-ce@4.6.1/dist/jspreadsheet.js"></script>
 
   <!-- jsuites -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsuites@4.9.10/dist/jsuites.css" />
@@ -25,21 +25,24 @@
   <div id="spreadsheet"></div>
 
   <script>
-    jspreadsheet(document.getElementById('spreadsheet'), {
-      data: [
-        ['ID', 'Имя', 'Возраст'],
-        [1, 'Иван', 25],
-        [2, 'Мария', 30],
-        [3, 'Петр', 35]
-      ],
-      columns: [
-        { type: 'numeric', title: 'ID', width: 80 },
-        { type: 'text', title: 'Имя', width: 150 },
-        { type: 'numeric', title: 'Возраст', width: 100 }
-      ]
-    });
+    window.onload = function () {
+      jspreadsheet(document.getElementById('spreadsheet'), {
+        data: [
+          ['ID', 'Имя', 'Возраст'],
+          [1, 'Иван', 25],
+          [2, 'Мария', 30],
+          [3, 'Петр', 35]
+        ],
+        columns: [
+          { type: 'numeric', title: 'ID', width: 80 },
+          { type: 'text', title: 'Имя', width: 150 },
+          { type: 'numeric', title: 'Возраст', width: 100 }
+        ]
+      });
+    };
   </script>
 
 </body>
 </html>
+
 
